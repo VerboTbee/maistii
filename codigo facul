@@ -1,0 +1,38 @@
+
+const prompt = require('prompt-sync')();
+
+let Estoque=[]
+
+let resposta
+
+do{
+    console.log(".................")
+    console.log(" Menu do Estoque")
+    console.log("1 - Listar todo o Estoque ")
+    console.log("2 - Adicionar produto ao Estoque ")
+    console.log("3 - Remova Produto(s) do Estoque ")
+    console.log("4 - Encerrar o Programa ")
+    console.log("            ")
+    resposta = prompt("Digite uma Opção: ")
+    console.log(".................")
+    if(resposta==1){
+        console.log(Estoque)
+    }
+    if(resposta==2){
+    let resposta2 = (prompt("Ótimo, qual é o nome do produto?: "));
+    let indice1 =Estoque.indexOf(resposta2) 
+    if(indice1 != -1){
+    console.log("Produto já cadastrado")
+    }else
+        Estoque.push(resposta2)
+    }
+    if(resposta==3){
+    let resposta3=(prompt("Que produto deseja remover?: "))
+    let indice =  Estoque.indexOf(resposta3)
+    if(indice != -1){
+        Estoque.splice(indice,1)
+    }else
+        console.log("Não existe esse produto :(")
+    }
+}while(resposta!=4);
+
